@@ -1,9 +1,7 @@
 const Benevole = require('../models/benevole.model');
 
 
-// Path : api/benevoles
-// POST
-// Create a new Benevole
+// Create a new Benevole in the database
 exports.createBenevole = function(req, res){
     const benevole = new Benevole({
         lastname : req.body.lastname,
@@ -19,7 +17,7 @@ exports.createBenevole = function(req, res){
 }
 
 
-
+// Update a Benevole with his id
 exports.updateBenevole = function(req, res){
     Benevole.updateOne({_id : req.params.id}, {...req.body, _id : req.params.id})
         .then(() => res.status(200).json({message : 'Bénévole mis à jour'}))
@@ -30,6 +28,7 @@ exports.updateBenevole = function(req, res){
 }
 
 
+// Delete a Benevole with his id
 exports.deleteBenevole = function(req, res){
     Benevole.deleteOne({_id : req.params.id})
         .then(() => res.status(200).json({message : 'Bénévole supprimé'}))
@@ -40,7 +39,8 @@ exports.deleteBenevole = function(req, res){
     );
 }
 
-exports.getOneBenevole = function(req, res){
+// Get a Benevole with his id
+exports.getBenevoleById = function(req, res){
     Benevole.findOne({_id : req.params.id})
         .then(benevole => res.status(200).json(benevole))
         .catch(error => {
@@ -49,7 +49,7 @@ exports.getOneBenevole = function(req, res){
         });
 }
 
-
+// Get all Benevoles that exist in the database
 exports.getAllBenevoles = function(req, res){
     Benevole.find()
         .then(benevoles => res.status(200).json(benevoles))

@@ -10,11 +10,7 @@ exports.createJeu = function(req, res){
     TypeJeu.findOne({name : req.body.type.toLowerCase()})
         .then(typeJeu => {
             if(typeJeu){
-                const jeu = new Jeu({
-                    name : req.body.name,
-                    type : typeJeu.name
-                });
-                jeu.save()
+                Jeu.create({name : jeu.name, type : jeu.type})
                     .then(() => res.status(201).json({message : 'Jeu créé !'}))
                     .catch(error => {
                         console.log(error);
@@ -31,4 +27,18 @@ exports.createJeu = function(req, res){
             res.status(400).json({error});
         });
 }
+
+
+
+// Get all the Jeux about a specific type
+exports.getJeuxByType = function(req, res){
+    Jeu.find({type : req.params.name.toLowerCase()})
+        .then(jeux => res.status(200).json(jeux))
+        .catch(error => {
+            console.log(error);
+            res.status(400).json({error});
+        });
+}
+
+
 
