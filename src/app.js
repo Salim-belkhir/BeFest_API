@@ -5,6 +5,7 @@ const benevoleRoute = require('./routes/benevole.route');
 const typeJeuRoute = require('./routes/type-jeu.route');
 const zoneRoute = require('./routes/zone.route');
 const jeuRoute = require('./routes/jeu.route');
+const creneauRoute = require('./routes/creneau.route');
 
 
 var app = express();
@@ -29,6 +30,7 @@ app.use("/api/benevoles", benevoleRoute);
 app.use("/api/type-jeux", typeJeuRoute);
 app.use("/api/zones", zoneRoute);
 app.use("/api/jeux", jeuRoute);
+app.use("/api/creneaux", creneauRoute);
 
 
 // We export the app to be used in the server.js file

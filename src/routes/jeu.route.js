@@ -15,6 +15,10 @@ router.get('/:id', jeuCtrl.getJeuById);
 // Get all Jeux by their type
 router.get('/:name', jeuCtrl.getJeuxByType);
 
+// Path : api/jeux/zone/:id
+// Get all Jeux by their zone
+router.get('/zone/:id', jeuCtrl.getJeuxByZoneId);
+
 // Path : api/jeux/:id
 // Create a new Jeu
 router.post('/', jeuCtrl.createJeu);

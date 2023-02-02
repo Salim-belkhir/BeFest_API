@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const Zone = require('./zone.model');
 
 
 const schemaCreneau = mongoose.Schema({
@@ -16,13 +15,18 @@ const schemaCreneau = mongoose.Schema({
         required : true
     },
     zone : {
-        type: Zone,
+        type: mongoose.SchemaTypes.ObjectId,
+        ref : 'Zone',
         required : true
     },
-    benevoles : { 
-        type: [Benevole],
+    benevoles : {
+        type: [{
+            type : mongoose.SchemaTypes.ObjectId,
+            ref : 'Benevole',
+            required : true
+        }],
         required : true
-    }   
+    }
 });
 
 

@@ -1,5 +1,6 @@
 const Jeu = require('../models/jeu.model');
 const TypeJeu = require('../models/type-jeu.model');
+const Zone = require('../models/zone.model');
 
 
 
@@ -10,7 +11,7 @@ exports.createJeu = function(req, res){
     TypeJeu.findOne({name : req.body.type.toLowerCase()})
         .then(typeJeu => {
             if(typeJeu){
-                Jeu.create({name : jeu.name, type : jeu.type})
+                Jeu.create({name : req.body.name, type : req.body.type})
                     .then(() => res.status(201).json({message : 'Jeu créé !'}))
                     .catch(error => {
                         console.log(error);
@@ -96,4 +97,18 @@ exports.deleteJeu = function(req, res){
             console.log(error);
             res.status(400).json({error});
         });
+}
+
+
+
+exports.getJeuxByZoneId = function(req, res){
+    Zone.findOne({_id : req.params.id})
+        .then(zone => {
+            res.status(200).json(zone.jeux);
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(400).json({error});
+        }
+    );  
 }
