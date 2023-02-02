@@ -3,19 +3,12 @@ const router = express.Router();
 const zoneCtrl = require('../controllers/zone.ctrl');
 
 
-router.get('/', function(req, res){
-    zoneCtrl.getAllZones(req, res);
-});
+router.get('', zoneCtrl.getAllZones);
 
 
-router.get('/:id', function(req, res){
-    zoneCtrl.getZoneById(req, res);
-});
+router.get(':id', zoneCtrl.getZoneById);
 
-router.post('/', function(req, res){
-    zoneCtrl.createZone(req, res);
-});
-
+router.post('', zoneCtrl.createZone);
 
 
 module.exports = router;

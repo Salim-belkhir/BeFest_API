@@ -3,28 +3,25 @@ const router = express.Router();
 const BenevoleCtrl = require('../controllers/benevole.ctrl');
 
 
-router.get('/', function(req, res){
-    BenevoleCtrl.getAllBenevoles(req, res);
-});
+// Path : api/benevoles
+// Get all Benevoles
+router.get('/', BenevoleCtrl.getAllBenevoles);
 
+// Path : api/benevoles/:id
+// Get a Benevole by its id
+router.get('/:id', BenevoleCtrl.getBenevoleById);
 
-router.get('/:id', function(req, res){
-    BenevoleCtrl.getBenevoleById(req, res);
-});
+// Path : api/benevoles
+// Create a new Benevole
+router.post('/', BenevoleCtrl.createBenevole);
 
+// Path : api/benevoles/:id
+// Update a Benevole
+router.put('/:id', BenevoleCtrl.updateBenevole);
 
-router.post('/', function(req, res){
-    BenevoleCtrl.createBenevole(req, res);
-});
-
-
-router.put('/:id', function(req, res){
-    BenevoleCtrl.updateBenevole(req, res);
-});
-
-router.delete('/:id', function(req, res){
-    BenevoleCtrl.deleteBenevole(req, res);
-});
+// Path : api/benevoles/:id
+// Delete a Benevole
+router.delete('/:id', BenevoleCtrl.deleteBenevole);
 
 
 module.exports = router;
