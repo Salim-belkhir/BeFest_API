@@ -1,8 +1,8 @@
-const Benevole = require('../models/benevole.model');
+const Benevole = require('../models/user.model');
 
 
 // Create a new Benevole in the database
-exports.createBenevole = function(req, res){
+/*exports.createBenevole = function(req, res){
     const benevole = new Benevole({
         lastname : req.body.lastname,
         firstname : req.body.firstname,
@@ -14,7 +14,7 @@ exports.createBenevole = function(req, res){
             console.log(error);
             res.status(400).json({error});
         });
-}
+}*/
 
 
 // Update a Benevole with his id

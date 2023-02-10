@@ -1,11 +1,14 @@
 // We get the modules we need
 const database = require('./configs/database');
 const express = require('express');
+var cookieSession = require('cookie-session');
 const benevoleRoute = require('./routes/benevole.route');
 const typeJeuRoute = require('./routes/type-jeu.route');
 const zoneRoute = require('./routes/zone.route');
 const jeuRoute = require('./routes/jeu.route');
 const creneauRoute = require('./routes/creneau.route');
+const authRoute = require('./routes/auth.route');
+const userRoute = require('./routes/user.route');
 
 
 var app = express();
@@ -25,7 +28,16 @@ app.use((req, res, next) => {
 // We parse the body of the requests
 app.use(express.json());
 
+// We set the cookie session
+app.use(cookieSession({
+    name: "befest-session",
+    secret: "COOKIE_SECRET", 
+    httpOnly: true
+  }))
+
 // We set the routes
+app.use('/api/auth', authRoute);
+app.use('/api/user', userRoute)
 app.use("/api/benevoles", benevoleRoute);
 app.use("/api/type-jeux", typeJeuRoute);
 app.use("/api/zones", zoneRoute);

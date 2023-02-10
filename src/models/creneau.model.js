@@ -22,7 +22,7 @@ const schemaCreneau = mongoose.Schema({
     benevoles : {
         type: [{
             type : mongoose.SchemaTypes.ObjectId,
-            ref : 'Benevole',
+            ref : 'User',
             required : true
         }],
         required : true
