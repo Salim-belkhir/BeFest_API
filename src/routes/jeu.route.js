@@ -3,8 +3,20 @@ const router = express.Router();
 const jeuCtrl = require('../controllers/jeu.ctrl');
 
 
-// Path : api/jeux
-// Get all Jeux
+/**
+ * @swagger
+ * /api/jeux:
+ *  get:
+ *     summary: Récupère tous les jeux existants.
+ *     tags: [Jeu]
+ *     security: []
+ *     description: Cette route permet de récupérer tous les jeux existants de l'API.
+ *     responses:
+ *      200:
+ *        description: Succès.
+ *      500:
+ *        description: Erreur serveur.
+ */
 router.get('/', jeuCtrl.getAllJeux);
 
 // Path : api/jeux/:id

@@ -4,8 +4,7 @@ const Zone = require('../models/zone.model');
 
 
 
-// Path : api/jeux
-// POST
+
 // Create a new Jeu
 exports.createJeu = function(req, res){
     TypeJeu.findOne({name : req.body.type.toLowerCase()})
@@ -48,7 +47,7 @@ exports.getAllJeux = function(req, res){
         .then(jeux => res.status(200).json(jeux))
         .catch(error => {
             console.log(error);
-            res.status(400).json({error});
+            res.status(500).json({error});
         });
 }
 
