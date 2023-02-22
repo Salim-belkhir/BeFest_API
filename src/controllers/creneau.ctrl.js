@@ -44,6 +44,7 @@ exports.createCreneau = function(req, res){
 
 // Update a Creneau
 exports.updateCreneau = function(req, res){
+    delete req.body._id;
     Creneau.updateOne({_id : req.params.id}, {...req.body, _id : req.params.id})
         .then(() => res.status(200).json({message : 'Créneau modifié !'}))
         .catch(error => {

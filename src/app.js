@@ -2,6 +2,9 @@
 const database = require('./configs/database');
 const express = require('express');
 var cookieSession = require('cookie-session');
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
 const benevoleRoute = require('./routes/benevole.route');
 const typeJeuRoute = require('./routes/type-jeu.route');
 const zoneRoute = require('./routes/zone.route');
@@ -36,6 +39,26 @@ app.use(cookieSession({
   }))
 
 // We set the routes
+
+/**
+ * @swagger
+ * tags:
+ *    - name: Auth
+ *      description: The auth managing API
+ *    - name: User
+ *      description: The user managing API
+ *    - name: Benevole
+ *      description: The benevole managing API
+ *    - name: TypeJeu
+ *      description: The typeJeu managing API
+ *    - name: Zone
+ *      description: The zone managing API
+ *    - name: Jeu
+ *      description: The jeu managing API
+ *    - name: Creneau
+ *      description: The creneau managing API
+ */
+
 app.use('/api/auth', authRoute);
 app.use('/api/user', userRoute)
 app.use("/api/benevoles", benevoleRoute);
@@ -43,6 +66,40 @@ app.use("/api/type-jeux", typeJeuRoute);
 app.use("/api/zones", zoneRoute);
 app.use("/api/jeux", jeuRoute);
 app.use("/api/creneaux", creneauRoute);
+
+
+
+
+
+
+
+// We set the swagger
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "BeFest API",
+      version: "1.0.0",
+      description:
+        "This is an API for the BeFest project, a scholar project for the Polytech Montpellier. Made by Salim & Ayoub",
+    },
+    servers: [
+      {
+        url: "http://localhost:8000/api",
+        description: "Development server",
+      },
+    ],
+  },
+  apis: ["src/routes/*.route.js", "src/models/*.model.js", "src/app.js"],
+};
+
+const specs = swaggerJsdoc(options);
+
+app.use(
+  "/api/docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
 
 
 // We export the app to be used in the server.js file

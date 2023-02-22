@@ -3,8 +3,14 @@ const router = express.Router();
 const zoneCtrl = require('../controllers/zone.ctrl');
 
 
-// Path : api/zone
-// Get all Zones
+
+
+
+
+/**
+ * @swagger
+ * /api/zone:
+ */
 router.get('', zoneCtrl.getAllZones);
 
 
