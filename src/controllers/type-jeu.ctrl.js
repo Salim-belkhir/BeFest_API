@@ -1,4 +1,4 @@
-const TypeJeu = require('../models/type-jeu.model');
+    const TypeJeu = require('../models/type-jeu.model');
 
 // Get all the TypeJeux that exist in the database
 exports.getAllTypeJeu = function(req, res){
@@ -28,6 +28,6 @@ exports.createTypeJeu = function(req, res){
         .then(() => res.status(201).json({message : 'TypeJeu créé !'}))
         .catch(error => {
             console.log(error);
-            res.status(400).json({error});
+            res.status(500).json({error});
         });
 }

@@ -16,6 +16,12 @@ const auth = require('../middlewares/auth');
  *     responses:
  *       200:
  *         description: Succès.
+ *         content:
+ *           application/json:
+ *              schema:
+ *                  type: array
+ *                  items:
+ *                      $ref: '#/components/schemas/Creneau'
  *       500:
  *         description: Erreur serveur.
  */
@@ -40,8 +46,13 @@ router.get('', auth.verifyToken, creneauCtrl.getAllCreneaux);
  *     responses:
  *          200:
  *              description: Succès.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          $ref: '#/components/schemas/Creneau'
  *          400:
  *              description: Erreur de requête.
+ *          
  */
 router.get('/:id', creneauCtrl.getCreneauById);
 
@@ -80,8 +91,6 @@ router.get('/:id', creneauCtrl.getCreneauById);
  *            description: Succès.
  *         400:
  *            description: Erreur de requête.
- * 
- * 
  */
 router.post('', creneauCtrl.createCreneau);
 
