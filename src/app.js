@@ -81,7 +81,7 @@ const options = {
       title: "BeFest API",
       version: "1.0.0",
       description:
-        "This is an API for the BeFest project, a scholar project for the Polytech Montpellier. Made by Salim & Ayoub",
+        "Welcome, \n this is an API for the BeFest project, a scholar project for the Polytech Montpellier. Made by Salim & Ayoub",
     },
     servers: [
       {
@@ -96,9 +96,9 @@ const options = {
 const specs = swaggerJsdoc(options);
 
 app.use(
-  "/api/docs",
+  "/",
   swaggerUi.serve,
-  swaggerUi.setup(specs, { explorer: true })
+  swaggerUi.setup(specs)
 );
 
 
