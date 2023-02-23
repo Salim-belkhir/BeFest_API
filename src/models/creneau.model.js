@@ -8,14 +8,14 @@ const mongoose = require('mongoose');
  *     Creneau:
  *      type: object
  *      required:
- *          - id
+ *          - _id
  *          - date
  *          - heureDebut
  *          - heureFin
  *          - zone
  *          - benevoles
  *      properties:
- *          id:
+ *          _id:
  *             type: string
  *             description: L'id du créneau.
  *          date:
@@ -34,7 +34,7 @@ const mongoose = require('mongoose');
  *              type: array
  *              description: Les id des bénévoles du créneau.
  *      example:
- *          id: 5f9f5b5b9b9b9b9b9b9b9b9b
+ *          _id: 5f9f5b5b9b9b9b9b9b9b9b9b
  *          date: 2020-10-31
  *          heureDebut: 10:00
  *          heureFin: 12:00

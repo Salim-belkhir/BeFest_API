@@ -8,11 +8,11 @@ const mongoose = require('mongoose');
  *    Zone:
  *      type: object
  *      required:
- *         - id
+ *         - _id
  *         - name
  *         - jeux
  *      properties:
- *        id:
+ *        _id:
  *          type: string
  *          description: L'id de la zone.
  *        name:
@@ -22,7 +22,7 @@ const mongoose = require('mongoose');
  *          type: array
  *          description: Les id des jeux de la zone.
  *      example:
- *       id: 5f9f5b5b9b9b9b9b9b9b9b9b
+ *       _id: 5f9f5b5b9b9b9b9b9b9b9b9b
  *       name: zone1
  *       jeux: [5f9f5b5b9b9b9b9b9b9b9b9b, 5f9f5b5b9b9b9b9b9b9b9b9b]
  *

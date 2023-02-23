@@ -7,11 +7,11 @@ const mongoose = require('mongoose');
  *     Jeu:
  *      type: object
  *      required:
- *        - id
+ *        - _id
  *        - name
  *        - type
  *      properties:
- *        id:
+ *        _id:
  *          type: string
  *          description: L'id du jeu.
  *        name:
@@ -21,7 +21,7 @@ const mongoose = require('mongoose');
  *          type: string
  *          description: Le type du jeu, il doit faire partie des jeux existants.
  *      example:
- *          id: 5f9f5b5b9b9b9b9b9b9b9b9b
+ *          _id: 5f9f5b5b9b9b9b9b9b9b9b9b
  *          name: jeu1
  *          type: jeu de société
  */
