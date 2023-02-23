@@ -69,10 +69,11 @@ exports.deleteZone = function(req, res){
 
 // Get the zone of a jeu by the id of the jeu
 exports.getZoneByJeuId = function(req, res){
-    Zone.findOne({jeux : req.params.id}).populate('jeux')
+    Zone.find({jeux : {$in : [req.params.id]}}).populate('jeux')
         .then(zone => res.status(200).json(zone))
         .catch(error => {
             console.log(error);
             res.status(400).json({error});
         });
+
 }
