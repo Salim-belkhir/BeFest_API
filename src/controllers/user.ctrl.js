@@ -24,6 +24,7 @@ exports.getInfosUser = (req,res) => {
 
 exports.updateUser = (req,res) => {
     const id = req.params.id;
+    delete req.body._id;
     if(id !== req.userId) {
         return res.status(401).json({
             message : "Unauthorized, it's not your account"
