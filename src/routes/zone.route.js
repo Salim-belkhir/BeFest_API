@@ -55,6 +55,13 @@ router.get('', zoneCtrl.getAllZones);
 router.get('/:id', zoneCtrl.getZoneById);
 
 
+
+// Get the zone of a jeu by the id of the jeu
+// Path : api/zone/jeu/:id
+router.get('/jeu/:id', zoneCtrl.getZoneByJeuId);
+
+
+
 // Path : api/zone/:id/jeux
 // Get all jeux of a zone
 router.get('/:id/jeux', zoneCtrl.getJeuxByZoneId);
