@@ -19,11 +19,11 @@ var verifySignup = require('../middlewares/verifySignup');
  *                  $ref: '#/components/schemas/User'
  *      responses:
  *              201:
- *                  description: Succès.
+ *                  description: Success.
  *              400:
- *                  description: Erreur dans la requête.
+ *                  description: Request error.
  *              500:
- *                  description: Erreur serveur.
+ *                  description: Server error.
  */
 // Here we use the middleware verifySignup to check if the email is already used and if the role is correct
 router.post('/signup', [verifySignup.checkDuplicateEmail, verifySignup.checkRolesExisted], authCtrl.signup);
@@ -50,15 +50,15 @@ router.post('/signup', [verifySignup.checkDuplicateEmail, verifySignup.checkRole
  *                  description: The password of the user.
  *     responses:
  *              200:
- *                  description: Succès.
+ *                  description: Success.
  *                  content:
  *                      application/json:
  *                          schema:
  *                              $ref: '#/components/schemas/User'
  *              400:
- *                  description: Erreur dans la requête.
+ *                  description: Request error.
  *              500:
- *                  description: Erreur serveur.
+ *                  description: Server error.
  */
 router.post('/signin', authCtrl.signin);
 
@@ -71,11 +71,11 @@ router.post('/signin', authCtrl.signin);
 *     tags: [Auth]
 *     responses:
 *       200:
-*           description: Succès.
+*           description: Success.
 *       400:
-*           description: Erreur dans la requête.
+*           description: Request error.
 *       500:
-*           description: Erreur serveur.
+*           description: Server error.
  */
 router.post('/signout', authCtrl.signout);
 

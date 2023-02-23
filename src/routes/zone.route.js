@@ -3,17 +3,53 @@ const router = express.Router();
 const zoneCtrl = require('../controllers/zone.ctrl');
 
 
-
-
-
-
 /**
  * @swagger
- * /api/zone:
+ *  /api/zone:
+ *    get:
+ *      summary: Get all the zones that exists.
+ *      tags: [Zone]
+ *      security: []
+ *      description: This route allows to get all the zones of the API.
+ *      responses:
+ *          200:
+ *              description: Success.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: array
+ *                          items:
+ *                              $ref: '#/components/schemas/Zone'
+ *          400:
+ *              description: Bad request.
  */
 router.get('', zoneCtrl.getAllZones);
 
 
+/**
+ * @swagger
+ *  /api/zone/{id}:
+ *   get:
+ *      summary: Get a zone by its id.
+ *      security: []
+ *      tags: [Zone]
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            schema:
+ *              type: string
+ *            required: true
+ *            description: The id of the zone to get.
+ *      responses:
+ *          200:
+ *              description: Success.
+ *              content:
+ *                  application/json:
+ *                     schema:
+ *                          $ref: '#/components/schemas/Zone'
+ *          404:
+ *              description: Ressource not found.
+ */
 // Path : api/zone/:id
 // Get a Zone by its id
 router.get('/:id', zoneCtrl.getZoneById);

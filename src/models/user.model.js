@@ -8,14 +8,14 @@ const mongoose = require('mongoose');
  *      User:
  *          type: object
  *          required:
- *              - id
+ *              - _id
  *              - lastname
  *              - firstname
  *              - email
  *              - password
  *              - role
  *          properties:
- *              id:
+ *              _id:
  *                  type: string
  *                  description: L'id de l'utilisateur.
  *              lastname:
@@ -34,7 +34,7 @@ const mongoose = require('mongoose');
  *                  type: string
  *                  description: Le rôle de l'utilisateur.
  *          example:
- *              id: 5f9f5b5b9b9b9b9b9b9b9b9b
+ *              _id: 5f9f5b5b9b9b9b9b9b9b9b9b
  *              lastname: Last
  *              firstname: Louis
  *              email: louis@gmail.com
