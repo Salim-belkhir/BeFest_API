@@ -8,10 +8,10 @@ const auth = require('../middlewares/auth');
  * @swagger
  * /api/benevoles:
  *  get:
- *      summary: Get all the benevoles that exists.
+ *      summary: Get all the benevoles that exists. Need to be an admin.
  *      tags: [Benevole]
- *      security: 
- *         - ApiKeyAuth: [admin]
+ *      security:
+ *          - ApiKeyAuth: [admin]
  *      description: This route allows to get all the benevoles of the API.
  *      responses:
  *          200:
@@ -31,18 +31,18 @@ router.get('/', auth.verifyToken, auth.isAdmin, BenevoleCtrl.getAllBenevoles);
  * @swagger
  * /api/benevoles/{id}:
  *  get:
- *      summary: Get a benevole by its id.
+ *      summary: Get a benevole by its id. Need to be an admin.
  *      tags: [Benevole]
  *      security:
- *          - ApiKeyAuth: [admin]
+ *          - ApiKeyAuth    : [admin]
  *      description: This route allows to get a benevole by its id.
  *      parameters:
  *          - in: path
- *              name: id
- *              schema:
+ *            name: id
+ *            schema:
  *                  type: string
- *              required: true
- *              description: The benevole id
+ *            required: true
+ *            description: The benevole id
  *      responses:
  *          200:
  *              description: Success.
@@ -63,7 +63,7 @@ router.get('/:id',auth.verifyToken, auth.isAdmin,BenevoleCtrl.getBenevoleById);
  * @swagger
  * /api/benevoles:
  *  put:
- *      summary: Update the informations of a benevole.
+ *      summary: Update the informations of a benevole. Need to be an admin.
  *      tags: [Benevole]
  *      security:
  *          - ApiKeyAuth: [admin]
@@ -85,25 +85,25 @@ router.put('/:id', auth.verifyToken, auth.isAdmin ,BenevoleCtrl.updateBenevole);
 
 /**
  * @swagger
- *  /api/benevoles/{id}:
- *     delete:
- *          summary: Delete a benevole.
- *          tags: [Benevole]
- *          security:
- *              - ApiKeyAuth: [admin]
- *          description: This route allows to delete a benevole.
- *          parameters:
- *                - in: path
- *                  name: id
- *                  schema:
- *                      type: string
- *                  required: true
- *                  description: The benevole id
- *          responses:
- *              200:
- *                  description: Success.
- *              400:
- *                  description: Bad request.
+ * /api/benevoles/{id}:
+ *  delete:
+ *      summary: Delete a benevole. Need to be an admin.
+ *      tags: [Benevole]
+ *      security:
+ *          - ApiKeyAuth: [admin]
+ *      description: This route allows to delete a benevole.
+ *      parameters:
+ *            - in: path
+ *              name: id
+ *              schema:
+ *                  type: string
+ *              required: true
+ *              description: The benevole id
+ *      responses:
+ *          200:
+ *              description: Success.
+ *          400:
+ *              description: Bad request.
  */
 router.delete('/:id', auth.verifyToken, auth.isAdmin,BenevoleCtrl.deleteBenevole);
 

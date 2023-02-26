@@ -68,6 +68,15 @@ app.use("/api/jeux", jeuRoute);
 app.use("/api/creneaux", creneauRoute);
 
 
+/**
+ * @swagger
+ * components:
+ *  securitySchemes:
+ *     ApiKeyAuth:
+ *        type: apiKey
+ *        in: header
+ *        name: Authorization
+ */
 
 
 
@@ -85,9 +94,13 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:8000/api",
+        url: "http://localhost:8000/",
         description: "Development server",
       },
+      {
+        url: "https://befest-api-1.onrender.com/",
+        description: "Production server",
+      }
     ],
   },
   apis: ["src/routes/*.route.js", "src/models/*.model.js", "src/app.js"],
@@ -100,6 +113,7 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(specs)
 );
+
 
 
 // We export the app to be used in the server.js file
