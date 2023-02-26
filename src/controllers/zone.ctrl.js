@@ -78,4 +78,5 @@ exports.getZoneByJeuId = function(req, res){
             console.log(error);
             res.status(404).json({error});
         });
+
 }
