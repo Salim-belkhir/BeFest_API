@@ -73,10 +73,25 @@ exports.getZoneByJeuId = function(req, res){
     console.log(req.params.id)
     console.log("here")
     Zone.findOne({jeux : req.params.id}).populate('jeux')
-        .then(zone => res.status(200).json(zone))
-        .catch(error => {
+        .then(zone => 
+                res.status(200).json(zone)
+            )
+            .catch(error => {
             console.log(error);
             res.status(404).json({error});
         });
 
+}
+
+
+// Get all the zones names
+exports.getAllZonesNames = function(req, res){
+    Zone.find().select('name')
+        .then(zones => {
+            res.status(200).json(zones);
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(400).json({error});
+        });
 }

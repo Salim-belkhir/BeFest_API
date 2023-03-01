@@ -55,6 +55,29 @@ router.get('/:id', zoneCtrl.getZoneById);
 
 /**
  * @swagger
+ * /api/zones/allNames:
+ * get:
+ *     summary: Get all the names of the zones.
+ *     security: []
+ *     tags: [Zone]
+ *    responses:
+ *     200:
+ *        description: Success.
+ *       content:
+ *         application/json:
+ *           schema:
+ *           type: array
+ *         items:
+ *          type: string
+ *    400:
+ *     description: Bad request.   
+ * 
+ */
+router.get('/allNames', zoneCtrl.getAllZonesNames);
+
+
+/**
+ * @swagger
  * /api/zones/jeu/{id}:
  *  get:
  *      summary: Get the zone of a jeu by the id of the jeu.
