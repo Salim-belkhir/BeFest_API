@@ -88,7 +88,7 @@ exports.getZoneByJeuId = function(req, res){
 exports.getAllZonesNames = function(req, res){
     Zone.find({}, { name: 1})
         .then(zones => 
-                res.status(200).json(zones)
+                zones
             )
         .catch(error => {
             console.log(error);
