@@ -53,7 +53,7 @@ router.get('', zoneCtrl.getAllZones);
 router.get('/:id', zoneCtrl.getZoneById);
 
 
-router.get('/allNames', zoneCtrl.getAllZonesNames);
+router.get('/allnames', zoneCtrl.getAllZonesNames);
 
 
 /**
