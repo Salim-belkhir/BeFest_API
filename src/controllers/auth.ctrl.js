@@ -27,7 +27,7 @@ exports.signup = (req, res) => {
         lastname : req.body.lastname,
         firstname : req.body.firstname,
         email : req.body.email,
-        password : hash,
+        password : req.body.password,
         role: req.body.role
     })
     .then(() => res.status(201).send("Utilisateur inscrit"))
