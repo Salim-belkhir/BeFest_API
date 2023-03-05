@@ -6,7 +6,7 @@ var bcrypt = require("bcrypt");
 
 
 exports.signup = (req, res) => {
-    bcrypt.hash(req.body.password, 10)
+    /*bcrypt.hash(req.body.password, 10)
     .then( hash => {
         User.create({
             lastname : req.body.lastname,
@@ -21,7 +21,20 @@ exports.signup = (req, res) => {
             res.status(400).json({error});
         });
     })
-    .catch(error => res.status(500).json({error}));
+    .catch(error => res.status(500).json({error}));*/
+
+    User.create({
+        lastname : req.body.lastname,
+        firstname : req.body.firstname,
+        email : req.body.email,
+        password : hash,
+        role: req.body.role
+    })
+    .then(() => res.status(201).send("Utilisateur inscrit"))
+    .catch(error => {
+        console.log(error);
+        res.status(400).json({error});
+    });
 };
 
 exports.signin = (req, res) => {
