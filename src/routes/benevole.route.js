@@ -25,7 +25,8 @@ const auth = require('../middlewares/auth');
  *          400:
  *              description: Bad request.
  */
-router.get('/', auth.verifyToken, auth.isAdmin, BenevoleCtrl.getAllBenevoles);
+//router.get('/', auth.verifyToken, auth.isAdmin, BenevoleCtrl.getAllBenevoles);
+router.get('/', BenevoleCtrl.getAllBenevoles);
 
 /**
  * @swagger
@@ -53,7 +54,8 @@ router.get('/', auth.verifyToken, auth.isAdmin, BenevoleCtrl.getAllBenevoles);
  *          404:
  *              description: Ressource not found.
  */
-router.get('/:id',auth.verifyToken, auth.isAdmin,BenevoleCtrl.getBenevoleById);
+//router.get('/:id',auth.verifyToken, auth.isAdmin,BenevoleCtrl.getBenevoleById);
+router.get('/:id',BenevoleCtrl.getBenevoleById);
 
 // Path : api/benevoles
 // Create a new Benevole
@@ -81,7 +83,8 @@ router.get('/:id',auth.verifyToken, auth.isAdmin,BenevoleCtrl.getBenevoleById);
  *          400:
  *              description: Bad request.
  */
-router.put('/:id', auth.verifyToken, auth.isAdmin ,BenevoleCtrl.updateBenevole);
+//router.put('/:id', auth.verifyToken, auth.isAdmin ,BenevoleCtrl.updateBenevole);
+router.put('/:id', BenevoleCtrl.updateBenevole);
 
 /**
  * @swagger
@@ -105,7 +108,9 @@ router.put('/:id', auth.verifyToken, auth.isAdmin ,BenevoleCtrl.updateBenevole);
  *          400:
  *              description: Bad request.
  */
-router.delete('/:id', auth.verifyToken, auth.isAdmin,BenevoleCtrl.deleteBenevole);
+// router.delete('/:id', auth.verifyToken, auth.isAdmin,BenevoleCtrl.deleteBenevole);
+
+router.delete('/:id', BenevoleCtrl.deleteBenevole);
 
 
 module.exports = router;
