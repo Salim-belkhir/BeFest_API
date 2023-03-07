@@ -31,6 +31,36 @@ router.get('', creneauCtrl.getAllCreneaux);
 
 /**
  * @swagger
+ *  /api/creneaux/benevole/{id}:
+ *      get:
+ *          summary: Récupère tous les créneaux d'un bénévole.
+ *          tags: [Creneau]
+ *          security: []
+ *          parameters:
+ *              - in: path
+ *                name: id
+ *                schema:
+ *                  type: string
+ *                required: true
+ *                description: L'id du bénévole à récupérer.
+ *          responses:
+ *              200:
+ *                  description: Success.
+ *                  content:
+ *                      application/json:
+ *                          schema:
+ *                              type: array
+ *                              items:
+ *                                  $ref: '#/components/schemas/Creneau'
+ *              400:
+ *                  description: Erreur de requête. 
+ */
+router.get('/benevole/:id', creneauCtrl.getCreneauByBenevole)
+
+
+
+/**
+ * @swagger
  * /api/creneaux/{id}:
  *   get:
  *     summary: Récupère un créneau par son id.
@@ -146,6 +176,7 @@ router.put('/:id', creneauCtrl.updateCreneau);
  * 
  */
 router.delete('/:id', creneauCtrl.deleteCreneau);
+
 
 
 module.exports = router;

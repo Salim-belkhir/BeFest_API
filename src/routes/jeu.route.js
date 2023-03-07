@@ -108,6 +108,9 @@ router.get('/:name', jeuCtrl.getJeuxByType);
  */
 router.get('/zone/:id', jeuCtrl.getJeuxByZoneId);
 
+
+router.post('/search/', jeuCtrl.searchJeux)
+
 /**
  * @swagger
  * /api/jeux:

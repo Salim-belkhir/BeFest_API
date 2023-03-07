@@ -63,3 +63,14 @@ exports.deleteCreneau = function(req, res){
             res.status(400).json({error});
         });
 }
+
+
+
+exports.getCreneauByBenevole = function(req, res){
+    Creneau.find({benevoles: req.params.id}).populate('zone').populate('benevoles')
+        .then(creneaux => res.status(200).json(creneaux))
+        .catch(error => {
+            console.log(error);
+            res.status(400).json({error});
+        });
+}
