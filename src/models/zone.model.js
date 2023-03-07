@@ -36,13 +36,10 @@ const schemaZone = mongoose.Schema({
         minlength : 2,
         maxlength : 50
     },
-    jeux : {
-        type: [{
-            type : mongoose.SchemaTypes.ObjectId,
-            ref : 'Jeu'
-        }],
-        default : []
-    }
+    jeux : [{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'Jeu'
+    }]
 });
 
 

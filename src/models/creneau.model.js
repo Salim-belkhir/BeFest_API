@@ -60,14 +60,11 @@ const schemaCreneau = mongoose.Schema({
         ref : 'Zone',
         required : true
     },
-    benevoles : {
-        type: [{
-            type : mongoose.SchemaTypes.ObjectId,
-            ref : 'User',
-            required : true
-        }],
+    benevoles : [{
+        type : mongoose.SchemaTypes.ObjectId,
+        ref : 'User',
         required : true
-    }
+    }]
 });
 
 
