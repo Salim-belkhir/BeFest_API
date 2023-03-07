@@ -101,7 +101,7 @@ exports.deleteJeu = function(req, res){
 
 
 exports.getJeuxByZoneId = function(req, res){
-    Zone.findOne({_id : req.params.id})
+    Zone.findOne({_id : req.params.id}).populate('jeux')
         .then(zone => {
             res.status(200).json(zone.jeux);
         })
