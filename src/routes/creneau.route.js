@@ -25,7 +25,7 @@ const auth = require('../middlewares/auth');
  *       500:
  *         description: Erreur serveur.
  */
-router.get('', auth.verifyToken, creneauCtrl.getAllCreneaux);
+router.get('', creneauCtrl.getAllCreneaux);
 
 
 
