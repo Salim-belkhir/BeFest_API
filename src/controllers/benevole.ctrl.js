@@ -51,7 +51,7 @@ exports.getBenevoleById = function(req, res){
 
 // Get all Benevoles that exist in the database
 exports.getAllBenevoles = function(req, res){
-    Benevole.find()
+    Benevole.find({role: "benevole"})
         .then(benevoles => res.status(200).json(benevoles))
         .catch(error => {
             console.log(error);
