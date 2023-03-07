@@ -112,8 +112,3 @@ exports.getJeuxByZoneId = function(req, res){
     );  
 }
 
-
-
-exports.searchJeu = function(req, res){
-    Jeu.find({name: { $regex: /req.body.name/, }})
-}
