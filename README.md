@@ -15,14 +15,14 @@ Le package nodemon a été utilisé pour faciliter le développement. Si vous ne
 
 ```bash
 npm install -g nodemon
-
+```
 
 ### Utilisation
 Une fois que les dépendances ont été installées, vous pouvez lancer le serveur en utilisant la commande suivante :
 
 ```bash
 nodemon server.js
-
+```
 
 Pour garantir la qualité de l'API, nous avons mis en place une documentation à l'aide de Swagger UI. Cette documentation permet de comprendre facilement comment utiliser l'API, quels sont les endpoints disponibles et quelles données sont renvoyées. Vous pouvez accéder à la documentation en ouvrant le fichier swagger-ui.html dans votre navigateur.
 
