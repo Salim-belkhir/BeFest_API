@@ -35,4 +35,4 @@ En résumé, ce projet universitaire a permis de développer une API RESTful pou
 
 Voici également le lien de l'API déployé :
 
-[Lien ici][https://befest-api-1.onrender.com/]
+[Lien ici](https://befest-api-1.onrender.com/)
